@@ -836,5 +836,46 @@ a:focus {
   color: inherit;
 }
 
+/* additional css */
+
+.client_detail .client_info p {
+  font-style: italic;
+  font-size: 11px;
+}
+
+.client_detail h5 {
+  font-weight: bold;
+}
+
+.carousel-wrap .owl-carousel .item .box {
+  height: 320px;
+}
+
+.client_info1 {
+  display: flex;
+  align-items: center;
+}
+
+.client_name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 10px; /* Ajoutez une marge entre le nom et les étoiles */
+}
+
+.star-icons {
+  color: #ffd700;
+}
+
+.client_id .img-box img{
+  width: 120px;
+  height: 120px;
+}
+
+/* Ajoutez d'autres règles CSS selon vos besoins */
+
+
+/* end additional css */
+
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
