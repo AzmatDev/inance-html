@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/maintenanceDevis.css">
+    <title>Devis Plomberie</title>
+</head>
+<body>
+<div class="container">
+    <h2>Plomberie - Demande de Devis</h2>
+    <form action="php/process_form.php" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <label for="adresse">Adresse :</label>
+        <input type="text" id="adresse" name="adresse" required>
+
+        <label for="telephone">Numéro de téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required>
+
+        <label for="codePostal">Code Postal :</label>
+        <input type="text" id="codePostal" name="codePostal" max="5">
+
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville" required>
+
+        <label for="description">Description du problème :</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <button type="submit">Envoyer la demande</button>
+    </form>
+</div>
+</body>
+</html>
