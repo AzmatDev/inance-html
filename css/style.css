@@ -897,15 +897,15 @@ a:focus {
 
 /* Styles pour la section Prestations */
 #prestations-produits {
-  background-color: #d1e3ff; /* Couleur de fond */
-  padding: 50px 0; /* Espacement intérieur */
+  background-color: #d1e3ff;
+  padding: 50px 0;
   text-align: center;
 }
 
 #prestations-produits h2 {
-  font-size: 36px; /* Taille de police du titre */
-  color: #0355cc; /* Couleur du texte du titre */
-  margin-bottom: 30px; /* Marge en bas du titre */
+  font-size: 36px;
+  color: #0355cc;
+  margin-bottom: 30px;
 }
 
 .prestations-list,
@@ -920,39 +920,7 @@ a:focus {
 
 .prestations-list li,
 .produits-list li {
-  width: 45%; /* Largeur de chaque élément */
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #e0e0e0; /* Bordure de chaque élément */
-  border-radius: 5px; /* Bordure arrondie */
-  transition: transform 0.3s ease; /* Animation de transformation au survol */
-}
-
-.prestations-list li:hover,
-.produits-list li:hover {
-  transform: scale(1.05); /* Zoom sur hover */
-}
-
-/* Styles pour la section Produits */
-#prestations-produits h2 {
-  font-size: 36px;
-  color: #0355cc;
-  margin-top: 50px;       /* Marge en haut du titre */
-}
-
-
-.prestations-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.prestations-list li {
-  width: 30%;
+  width: calc(33.33% - 20px); /* 33.33% pour trois éléments par ligne, ajustez selon vos préférences */
   margin-bottom: 30px;
   padding: 20px;
   background-color: white;
@@ -961,6 +929,31 @@ a:focus {
   transition: transform 0.3s ease;
 }
 
+.prestations-list li:hover,
+.produits-list li:hover {
+  transform: scale(1.1);
+}
+
+/* Styles pour la section Produits */
+#prestations-produits h2 {
+  font-size: 36px;
+  color: #0355cc;
+  margin-top: 50px;
+}
+
+.produits-list li {
+  width: calc(33.33% - 20px);
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Ajoutez ces règles à votre CSS existant */
+
+/* Styles pour la section Prestations */
 #prestations-produits ul li {
   opacity: 0;
   transform: translateX(50px);
@@ -971,6 +964,27 @@ a:focus {
   opacity: 1;
   transform: translateX(0);
 }
+
+#prestations-produits ul li:hover {
+  transform: scale(1.1); /* Ajoute l'effet de grossissement au survol */
+}
+
+/* Styles pour la section Produits */
+#prestations-produits ul li {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+#prestations-produits ul li.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#prestations-produits ul li:hover {
+  transform: scale(1.1); /* Ajoute l'effet de grossissement au survol */
+}
+
 
 
 /* end additional css */
