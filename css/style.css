@@ -437,6 +437,10 @@ a:focus {
   width: 100%;
 }
 
+.professional_section .ballon1 {
+  display: inline-block;
+}
+
 .professional_section {
   background-color: #d1e3ff;
 }
@@ -447,8 +451,8 @@ a:focus {
           align-items: center;
 }
 
-.professional_section .img-box img {
-  width: 100%;
+.professional_section .img-box {
+  margin-right: 100px; /* Ajustez la valeur négative selon vos besoins */
 }
 
 .professional_section .detail-box h2 {
@@ -871,7 +875,102 @@ a:focus {
   height: 120px;
 }
 
-/* Ajoutez d'autres règles CSS selon vos besoins */
+
+
+.box .detail-box .description {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Ajout de la transition */
+}
+
+.box:hover .detail-box .description {
+  display: block;
+  opacity: 1;
+}
+
+.box:hover .detail-box h5,
+.box:hover .detail-box p {
+  color: black;
+}
+
+
+
+/* Styles pour la section Prestations */
+#prestations-produits {
+  background-color: #d1e3ff; /* Couleur de fond */
+  padding: 50px 0; /* Espacement intérieur */
+  text-align: center;
+}
+
+#prestations-produits h2 {
+  font-size: 36px; /* Taille de police du titre */
+  color: #0355cc; /* Couleur du texte du titre */
+  margin-bottom: 30px; /* Marge en bas du titre */
+}
+
+.prestations-list,
+.produits-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.prestations-list li,
+.produits-list li {
+  width: 45%; /* Largeur de chaque élément */
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e0e0e0; /* Bordure de chaque élément */
+  border-radius: 5px; /* Bordure arrondie */
+  transition: transform 0.3s ease; /* Animation de transformation au survol */
+}
+
+.prestations-list li:hover,
+.produits-list li:hover {
+  transform: scale(1.05); /* Zoom sur hover */
+}
+
+/* Styles pour la section Produits */
+#prestations-produits h2 {
+  font-size: 36px;
+  color: #0355cc;
+  margin-top: 50px;       /* Marge en haut du titre */
+}
+
+
+.prestations-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.prestations-list li {
+  width: 30%;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+#prestations-produits ul li {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+#prestations-produits ul li.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 
 /* end additional css */

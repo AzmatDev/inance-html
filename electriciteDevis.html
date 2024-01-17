@@ -3,27 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/maintenanceDevis.css">
-    <title>Devis Electricité</title>
+    <link rel="stylesheet" href="css/devis.css">
+    <title>Devis Electricite</title>
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var emailRegex = /.*@.*/;   // Vérifie la présence du caractère "@"
+
+            if (!emailRegex.test(email)) {
+                alert("Veuillez entrer une adresse e-mail valide.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
 <div class="container">
-    <h2>Electricité - Demande de Devis</h2>
-    <form action="php/process_form.php" method="post">
+    <h2>Electricite - Demande de Devis</h2>
+    <form action="php/process_form.php" method="post" onsubmit="return validateEmail()">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
 
         <label for="prenom">Prénom :</label>
         <input type="text" id="prenom" name="prenom" required>
 
+        <label for="email">Adresse E-mail :</label>
+        <input type="email" id="email" name="email" required>
+
         <label for="adresse">Adresse :</label>
         <input type="text" id="adresse" name="adresse" required>
 
         <label for="telephone">Numéro de téléphone :</label>
-        <input type="tel" id="telephone" name="telephone" required>
+        <input type="tel" id="telephone" name="telephone" required maxlength="10">
 
         <label for="codePostal">Code Postal :</label>
-        <input type="text" id="codePostal" name="codePostal" required>
+        <input type="text" id="codePostal" name="codePostal" required maxlength="5">
 
         <label for="ville">Ville :</label>
         <input type="text" id="ville" name="ville" required>
