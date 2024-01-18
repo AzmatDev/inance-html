@@ -113,6 +113,10 @@ a:focus {
   padding: 10px 0;
 }
 
+.header_section{
+  background-color: black;
+}
+
 .navbar-brand {
   padding: 0;
   margin: 0;
@@ -137,13 +141,16 @@ a:focus {
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
   padding: 10px 25px;
-  color: #000000;
+  color: #0355cc; /* Set the default color */
   text-align: center;
+  transition: color 0.3s; /* Add a smooth transition effect */
 }
 
-.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
-  color: #0355cc;
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  color: #ff8a1d; /* Change the color on hover and when active */
 }
+
 
 .custom_nav-container .form-inline .nav_search-btn {
   width: 35px;
@@ -407,6 +414,10 @@ a:focus {
           align-items: center;
 }
 
+.about_section .detail-box {
+  margin-bottom: 60px;
+}
+
 .about_section .detail-box h2 {
   text-transform: uppercase;
   font-weight: bold;
@@ -459,6 +470,8 @@ a:focus {
   text-transform: uppercase;
   font-weight: bold;
   color: #0355cc;
+  font-size: 32px;
+
 }
 
 .professional_section .detail-box p {
@@ -467,14 +480,10 @@ a:focus {
 
 .professional_section .detail-box a {
   margin-top: 25px;
-  display: inline-block;
+  display: inline;
   font-family: 'Merriweather Sans', sans-serif;
   text-transform: uppercase;
-  padding: 10px 45px;
-  background-color: #ff8a1d;
-  border: 1px solid #ff8a1d;
-  border-radius: 2px;
-  color: #ffffff;
+  color: #0355cc;
 }
 
 .professional_section .detail-box a:hover {
@@ -504,6 +513,7 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
 }
 
 .service_section .box .img-box {
@@ -876,15 +886,15 @@ a:focus {
 }
 
 
-
-.box .detail-box .description {
-  display: none;
+.box .detail-box p {
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease; /* Ajout de la transition */
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.box:hover .detail-box .description {
-  display: block;
+.box:hover .detail-box p {
+  max-height: 100%; /* ou une valeur suffisamment grande pour afficher le contenu complet */
   opacity: 1;
 }
 
@@ -893,6 +903,10 @@ a:focus {
   color: black;
 }
 
+
+.service_section{
+  background-color: #d1e3ff;
+}
 
 
 /* Styles pour la section Prestations */
@@ -984,6 +998,66 @@ a:focus {
 #prestations-produits ul li:hover {
   transform: scale(1.1); /* Ajoute l'effet de grossissement au survol */
 }
+
+
+.travaux-section {
+  display: flex;
+  align-items: flex-start; /* Alignement en haut */
+  padding: 20px;
+  background-color: #d1e3ff; /* Couleur de fond pour différencier */
+  min-height: 100vh;
+}
+
+.travaux-images {
+  flex: 1; /* Occupe autant d'espace que possible */
+  border-radius: 8px;
+  padding: 20px; /* Ajout de marge interne pour plus de visibilité */
+}
+
+.horaire {
+  flex: 0 0 28%; /* Occupe 28% de l'espace, mais n'est pas extensible ni réductible */
+  text-align: right; /* Alignement du texte à droite */
+  background-color: coral; /* Couleur de fond pour différencier */
+  border-radius: 8px;
+  margin-right: 0px; /* Ajout de marge interne pour plus de visibilité */
+}
+
+.travaux-section h3 {
+  color: #0355cc;
+  font-weight: bold;
+  font-size: 38px;
+}
+
+.horaire h3 {
+  color: #0355cc;
+  font-weight: bold;
+  font-size: 38px;
+  text-align: center;
+}
+
+.horaire ul {
+  list-style-type: none;
+  text-align: left; /* Aligner la liste à gauche */
+
+}
+
+.horaire li {
+  margin-bottom: 10px;
+}
+
+.travaux-images img {
+  width: 300px;
+  height: 250px;
+  border: 2px solid #0355cc; /* Bordure autour de chaque image */
+  border-radius: 8px; /* Rayon des coins pour arrondir les bordures */
+  margin-bottom: 10px; /* Marge entre les images */
+}
+
+
+
+
+
+
 
 
 

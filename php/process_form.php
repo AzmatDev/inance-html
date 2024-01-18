@@ -3,7 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 /*require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
@@ -11,7 +11,7 @@ require './PHPMailer/src/SMTP.php';*/
 
 function envoie_mail($from_firstname,$from_lastname,$from_email,$subject,$message){
     $mail = new PHPMailer();
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Activer la sortie de débogage détaillée
+    $mail->SMTPDebug = 0; // Activer la sortie de débogage détaillée
     $mail->SMTPSecure = 'ssl'; // Activer la sortie de débogage détaillée
     $mail->isSMTP(); // Envoi via SMTP
     $mail->Host       = 'smtp.gmail.com'; // Adresse du serveur SMTP
@@ -24,7 +24,7 @@ function envoie_mail($from_firstname,$from_lastname,$from_email,$subject,$messag
     $mail->setFrom($from_email,"$from_lastname $from_firstname");
     $mail->addAddress('azmat.chwt@gmail.com','nt-services');
     $mail->isHTML(true); // Définir le format de l'e-mail en HTML
-    $mail->Subject = 'Maintenance Devis';
+    $mail->Subject = 'Devis Installation';
     $mail->Body    = $message;
 
     try {

@@ -25,6 +25,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="css/body.css" rel="stylesheet">
+  <script src="js/script.js"></script>
 
 </head>
 
@@ -32,24 +34,6 @@
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
-      <div class="header_top">
-        <div class="container-fluid">
-          <div class="contact_nav">
-            <a href="">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              <span>
-                Call : +33 6 50 18 49 02
-              </span>
-            </a>
-            <a href="">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <span>
-                Email : demo@gmail.com
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -86,76 +70,77 @@
     <!-- end header section -->
   </div>
 
-  <!-- service section -->
+  <section class="travaux-section">
+    <div class="travaux-images">
+      <h3>Découvrez Nos Réalisations</h3>
+      <img src="images/exemple1_av.jpg" alt="Avant - Compteur électrique 1">
+      <img src="images/exemple1_ap.jpg" alt="Après - Compteur électrique 1">
+      <img src="images/exemple2_av.jpg" alt="Avant - Compteur électrique 2">
+      <img src="images/exemple2_ap.jpg" alt="Après - Compteur électrique 2">
+      <img src="images/exemple3_av.jpg" alt="Avant - Compteur électrique 3">
+      <img src="images/exemple3_ap.jpg" alt="Après - Compteur électrique 3">
+    </div>
+    <div class="horaire">
+      <h3>Horaire d'ouvertures</h3>
+      <ul>
+        <li><strong>Lundi :</strong> 08:00–20:00</li>
+        <li><strong>Mardi :</strong> 08:00–20:00</li>
+        <li><strong>Mercredi :</strong> 08:00–20:00</li>
+        <li><strong>Jeudi :</strong> 08:00–20:00</li>
+        <li><strong>Vendredi :</strong> 08:00–18:00</li>
+        <li><strong>Samedi :</strong> Fermé</li>
+        <li><strong>Dimanche :</strong> 09:00–18:00</li>
+      </ul>
+    </div>
+  </section>
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- service section -->
   <section class="service_section layout_padding">
     <div class="container ">
       <div class="heading_container heading_center">
-        <h2> Nos Services </h2>
+        <h2> Nos différents services </h2>
       </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-4 mx-auto">
-          <div class="box ">
-            <div class="img-box">
-              <img src="images/s1.png" alt="" />
-            </div>
-            <div class="detail-box">
-              <h5>
-                Maintenances
-              </h5>
-              <p>
-                nous assurons des services complets de maintenance et d'entretien pour assurer
-                la pérennité de vos installations domestiques.
-                Notre équipe dédiée est prête à intervenir pour garantir
-                le bon fonctionnement continu de vos équipements.
-              </p>
-            </div>
-          </div>
+
+      <section id="prestations-produits">
+        <div class="container">
+          <h2>Prestations</h2>
+          <ul class="prestations-list">
+            <li>Entretien de chauffe-eau</li>
+            <li>Détection de fuite d'eau</li>
+            <li>Remplacement de chauffe-eau</li>
+            <li>Fuite d'eau</li>
+            <li>Pose de canalisation</li>
+            <li>Changement de chauffe-eau</li>
+            <li>Urgence plomberie</li>
+            <li>Inspection vidéo de canalisation</li>
+            <li>Installation de sanitaire</li>
+            <li>Rénovation de salle de bain</li>
+            <li>Plomberie pour gaz</li>
+            <li>Débouchage de canalisation</li>
+          </ul>
+
+          <h2>Produits</h2>
+          <ul class="produits-list">
+            <li>Ballon d'eau chaude</li>
+            <li>Cabine de douche</li>
+            <li>Douche à l'italienne</li>
+            <li>Baignoire</li>
+            <li>Robinetterie</li>
+            <li>WC</li>
+          </ul>
         </div>
-        <div class="col-sm-6 col-md-4 mx-auto">
-          <div class="box ">
-            <div class="img-box">
-              <img src="images/s2.png" alt="" />
-            </div>
-            <div class="detail-box">
-              <h5>
-                Electricité
-              </h5>
-              <p>
-                Nous proposons une gamme complète de services électriques
-                pour garantir la sécurité et l’efficacité de vos installations domestiques.
-                Notre équipe spécialisée est prête à intervenir pour assurer une alimentation
-                électrique continue et fiable pour vos équipements.
-                De l’installation à la réparation,
-                nous sommes là pour répondre à tous vos besoins en matière d’électricité.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 mx-auto">
-          <div class="box ">
-            <div class="img-box">
-              <img src="images/s3.png" alt="" />
-            </div>
-            <div class="detail-box">
-              <h5>
-                Plomberie
-              </h5>
-              <p>
-                Nous offrons une variété de services de plomberie
-                pour assurer le bon fonctionnement de vos installations sanitaires.
-                Notre équipe d’experts est prête à intervenir pour
-                garantir une distribution d’eau et un drainage efficaces dans votre maison.
-                De l’installation de nouveaux équipements à la réparation des systèmes existants
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-      </div>
+      </section>
     </div>
   </section>
+
+
+
 
   <!-- end service section -->
 
@@ -163,7 +148,7 @@
   <section class="info_section ">
     <div class="container">
       <h4>
-        Get In Touch
+        Contact
       </h4>
       <div class="row">
         <div class="col-lg-10 mx-auto">
@@ -195,13 +180,13 @@
                 </a>
               </div>
               <div class="col-md-4">
-                <a href="">
+                <a href="mailto:groupentservices@gmail.com">
                   <div class="item ">
                     <div class="img-box">
                       <i class="fa fa-envelope" aria-hidden="true"></i>
                     </div>
                     <p>
-                      demo@gmail.com
+                      groupentservices@gmail.com
                     </p>
                   </div>
                 </a>
@@ -209,25 +194,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="social-box">
-      <h4>
-        Follow Us
-      </h4>
-      <div class="box">
-        <a href="">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-youtube" aria-hidden="true"></i>
-        </a>
-        <a href="">
-          <i class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
       </div>
     </div>
   </section>
@@ -255,6 +221,7 @@
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
+
 
 
 </body>
