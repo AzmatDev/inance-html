@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
     // Get the button and phone number data attribute by ID
     var contactButton = document.getElementById("contactButton");

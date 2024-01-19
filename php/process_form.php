@@ -16,13 +16,13 @@ function envoie_mail($from_firstname,$from_lastname,$from_email,$subject,$messag
     $mail->isSMTP(); // Envoi via SMTP
     $mail->Host       = 'smtp.gmail.com'; // Adresse du serveur SMTP
     $mail->SMTPAuth   = true; // Activation de l'authentification SMTP
-    $mail->Username   = 'azmat.chwt@gmail.com'; // Nom d'utilisateur SMTP
-    $mail->Password   = 'oovj lwql mkoj cqyx'; // Mot de passe SMTP
+    $mail->Username   = 'groupentservices@gmail.com'; // Nom d'utilisateur SMTP
+    $mail->Password   = 'hjxd btnf vkny ouho'; // Mot de passe SMTP
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Activation du chiffrement TLS implicite
     $mail->Port       = 587;
 
     $mail->setFrom($from_email,"$from_lastname $from_firstname");
-    $mail->addAddress('azmat.chwt@gmail.com','nt-services');
+    $mail->addAddress('groupentservices@gmail.com','nt-services');
     $mail->isHTML(true); // Définir le format de l'e-mail en HTML
     $mail->Subject = 'Devis Installation';
     $mail->Body    = $message;
