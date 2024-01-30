@@ -5,19 +5,18 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once '../vendor/autoload.php';
 
-/*require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';*/
+$dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/..');
+$dotenv->load();
 
 function envoie_mail($from_firstname,$from_lastname,$from_email,$subject,$message){
     $mail = new PHPMailer();
-    $mail->SMTPDebug = 0; // Activer la sortie de débogage détaillée
+    $mail->SMTPDebug = 2; // Activer la sortie de débogage détaillée
     $mail->SMTPSecure = 'ssl'; // Activer la sortie de débogage détaillée
     $mail->isSMTP(); // Envoi via SMTP
     $mail->Host       = 'smtp.gmail.com'; // Adresse du serveur SMTP
     $mail->SMTPAuth   = true; // Activation de l'authentification SMTP
-    $mail->Username   = 'groupentservices@gmail.com'; // Nom d'utilisateur SMTP
-    $mail->Password   = 'hjxd btnf vkny ouho'; // Mot de passe SMTP
+    $mail->Username   = $_ENV['SMTP_USERNAME']; // Nom d'utilisateur SMTP
+    $mail->Password   = $_ENV['SMTP_PASSWORD']; // Mot de passe SMTP
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Activation du chiffrement TLS implicite
     $mail->Port       = 587;
 

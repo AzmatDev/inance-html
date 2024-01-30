@@ -932,40 +932,46 @@ a:focus {
   justify-content: space-around;
 }
 
-.prestations-list li,
-.produits-list li {
+.prestations-list li ,
+.produits-list li  {
   width: calc(33.33% - 20px); /* 33.33% pour trois éléments par ligne, ajustez selon vos préférences */
-  margin-bottom: 30px;
+  height: 68px;
+  margin-bottom: 70px;
   padding: 20px;
   background-color: white;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #00BFFF;
   border-radius: 5px;
   transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.prestations-list li:hover,
-.produits-list li:hover {
-  transform: scale(1.1);
+
+
+/*Gérer le remplissage des li */
+
+#prestations-produits li {
+  color: black;
+  z-index: 0;
 }
 
-/* Styles pour la section Produits */
-#prestations-produits h2 {
-  font-size: 36px;
-  color: #0355cc;
-  margin-top: 50px;
+#prestations-produits li::before {
+  content: '';
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00BFFF;
+  border-radius: 50% 50% 0 0;
+  transition: all .5s;
+  z-index: -1;
 }
 
-.produits-list li {
-  width: calc(33.33% - 20px);
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
+#prestations-produits li:hover::before {
+  top: 0;
+  border-radius: 0;
 }
-
-/* Ajoutez ces règles à votre CSS existant */
 
 /* Styles pour la section Prestations */
 #prestations-produits ul li {
@@ -979,25 +985,10 @@ a:focus {
   transform: translateX(0);
 }
 
-#prestations-produits ul li:hover {
-  transform: scale(1.1); /* Ajoute l'effet de grossissement au survol */
-}
+/*#prestations-produits ul li:hover {
+  transform: scale(1.1); !* Ajoute l'effet de grossissement au survol *!
+}*/
 
-/* Styles pour la section Produits */
-#prestations-produits ul li {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-#prestations-produits ul li.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#prestations-produits ul li:hover {
-  transform: scale(1.1); /* Ajoute l'effet de grossissement au survol */
-}
 
 
 .travaux-section {
