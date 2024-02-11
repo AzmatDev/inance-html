@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--<title>Registration Form in HTML CSS</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="css/plombDevis.css" />
+
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var emailRegex = /.*@.*/;   // Vérifie la présence du caractère "@"
+
+            if (!emailRegex.test(email)) {
+                alert("Veuillez entrer une adresse e-mail valide.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+<section class="container">
+    <header>Plomberie - Demande de Devis</header>
+    <form action="php/process_form_plomb.php" method="post" class="form">
+
+        <input type="hidden" id="subject" name="subject" value="Devis Installation">
+        <div class="column">
+        <div class="input-box">
+            <label>Nom</label>
+            <input type="text" placeholder="Votre nom" required />
+        </div>
+
+        <div class="input-box">
+            <label>Prénom</label>
+            <input type="text" placeholder="Votre prénom" required />
+        </div>
+
+        <div class="input-box">
+            <label>Email</label>
+            <input type="text" placeholder="exemple@mail.fr" required />
+        </div>
+
+
+            <div class="input-box">
+                <label for="telephone">Numéro de téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="0123456789" required maxlength="10">
+            </div>
+
+            <div class="input-box">
+                <label>Adresse</label>
+                <input type="text" placeholder="Votre adresse" required />
+            </div>
+            <div class="input-box">
+                <label for="ville">Ville</label>
+                <input type="text" id="ville" name="ville" placeholder="Paris" required>
+            </div>
+            <div class="input-box">
+                <label for="codePostal">Code Postal</label>
+                <input type="text" id="codePostal" name="codePostal" placeholder="75011" required maxlength="5">
+            </div>
+        </div>
+            <label for="description">Description du problème :</label>
+            <textarea id="description" name="description" rows="4" placeholder="Décrivez nous votre problème" required></textarea>
+
+        <button type="submit">Envoyer la demande</button>
+    </form>
+</section>
+</body>
+</html>
