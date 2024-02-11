@@ -8,7 +8,7 @@
         <script>
             function validateEmail() {
                 var email = document.getElementById("email").value;
-                var emailRegex = /.*@.*/;   // Vérifie la présence du caractère "@"
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
                 if (!emailRegex.test(email)) {
                     alert("Veuillez entrer une adresse e-mail valide.");
@@ -16,19 +16,27 @@
                 }
                 return true;
             }
+            // Empêche l'envoi du formulaire si l'adresse e-mail n'est pas valide
+            document.querySelector('form').addEventListener('submit', function(event) {
+                if (!validateEmail()) {
+                    event.preventDefault();
+                }})
         </script>
     </head>
     <body>
     <div class="container">
         <h2>Installation - Demande de Devis</h2>
-        <form action="php/process_form.php" method="post" onsubmit="return validateEmail()">
+        <form action="php/process_form.php" method="post">
+
+            <input type="hidden" id="subject" name="subject" value="Devis Installation">
+
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required>
 
             <label for="prenom">Prénom :</label>
             <input type="text" id="prenom" name="prenom" required>
 
-            <label for="email">Adresse E-mail :</label>
+            <label for="email">Email :</label>
             <input type="email" id="email" name="email" required>
 
             <label for="adresse">Adresse :</label>

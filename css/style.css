@@ -803,7 +803,7 @@ a:focus {
 }
 
 .info_items .item .img-box i {
-  font-size: 24px;
+  font-size : 24px;
 }
 
 .info_items .item p {
@@ -909,87 +909,6 @@ a:focus {
 }
 
 
-/* Styles pour la section Prestations */
-#prestations-produits {
-  background-color: #d1e3ff;
-  padding: 50px 0;
-  text-align: center;
-}
-
-#prestations-produits h2 {
-  font-size: 36px;
-  color: #0355cc;
-  margin-bottom: 30px;
-}
-
-.prestations-list,
-.produits-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.prestations-list li ,
-.produits-list li  {
-  width: calc(33.33% - 20px); /* 33.33% pour trois éléments par ligne, ajustez selon vos préférences */
-  height: 68px;
-  margin-bottom: 70px;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #00BFFF;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-
-
-/*Gérer le remplissage des li */
-
-#prestations-produits li {
-  color: black;
-  z-index: 0;
-}
-
-#prestations-produits li::before {
-  content: '';
-  position: absolute;
-  top: 68px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #00BFFF;
-  border-radius: 50% 50% 0 0;
-  transition: all .5s;
-  z-index: -1;
-}
-
-#prestations-produits li:hover::before {
-  top: 0;
-  border-radius: 0;
-}
-
-/* Styles pour la section Prestations */
-#prestations-produits ul li {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-#prestations-produits ul li.animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/*#prestations-produits ul li:hover {
-  transform: scale(1.1); !* Ajoute l'effet de grossissement au survol *!
-}*/
-
-
 
 .travaux-section {
   display: flex;
@@ -1045,9 +964,23 @@ a:focus {
 }
 
 
+/*  Curseur */
 
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999; /* so that it stays on top of all other elements */
+}
 
-
+*{
+  cursor: none;
+}
 
 
 

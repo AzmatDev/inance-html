@@ -21,14 +21,17 @@
 <body>
 <div class="container">
     <h2>Plomberie - Demande de Devis</h2>
-    <form action="php/process_form.php" method="post" onsubmit="return validateEmail()">
+    <form action="php/process_form_plomb.php" method="post">
+
+        <input type="hidden" id="subject" name="subject" value="Devis Installation">
+
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required>
 
         <label for="prenom">Prénom :</label>
         <input type="text" id="prenom" name="prenom" required>
 
-        <label for="email">Adresse E-mail :</label>
+        <label for="email">Email :</label>
         <input type="email" id="email" name="email" required>
 
         <label for="adresse">Adresse :</label>

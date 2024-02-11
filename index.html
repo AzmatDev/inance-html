@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
 
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -11,7 +25,6 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-
   <title>Nt-services</title>
 
   <!-- slider stylesheet -->
@@ -25,7 +38,10 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <!-- prestations style -->
+  <link href="css/prestations.css" rel="stylesheet">
   <link rel="icon" href="images/logo_site-removebg.png" type="image/x-icon">
+  <!-- Javascript style -->
   <script src="js/script.js"></script>
 
 
@@ -45,7 +61,7 @@
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class=""> </span>
+              <span class=""></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,9 +75,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="service.html">Services</a>
                 </li>
-                <!--<li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                </li>-->
               </ul>
             </div>
           </nav>
@@ -80,11 +93,11 @@
                 Rénovation et<br>
                 Dépannage
               </h1>
-              <!--<a href="tel:+33650184902">
-                Contacter le service
-              </a>-->
               <a href="#" id="contactButton" data-phone-number="+33 1 84 23 10 10">
-                Contacter le service
+                Contacter le service <br>
+                <small style="font-size: 0.5em;">
+                  (Prix d'un appel local)
+                </small>
               </a>
             </div>
           </div>
@@ -130,38 +143,6 @@
       </div>
     </div>
   </section>
-  <section class="professional_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="images/professional-img.png" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 ">
-          <div class="detail-box">
-            <h2 class="h2-1">
-              Nous fournissons des services
-              domestiques professionnels<br>
-              <a href="service.html">cliquez ici</a>
-              pour voir d'autres exemples
-            </h2>
-            <table>
-              <tr>
-                <td class="ballon">
-                  <img src="images/ballon_avant.jpg" alt="Ballon d'eau chaude avant la réparation" style="width: 265px; height: 400px;">
-                  <img src="images/ballon_apres.jpg" alt="Ballon d'eau chaude après la réparation" style="width: 265px; height: 400px;">
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <br>
-  <br>
-  <br>
 
 
   <!-- end professional section -->
@@ -175,8 +156,8 @@
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 mx-auto">
-          <a href="installationDevis.html">
-          <div class="box" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
+          <a href="installationDevis.html?service=Installation">
+            <div class="box" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
             <div class="img-box">
               <img src="images/s1.png" alt="" />
             </div>
@@ -184,17 +165,17 @@
               <h5>
                 Installation
               </h5>
-              <p class="description">
-                Vous envisagez une installation ou un nouveau projet ?
-                Nos experts sont là pour vous accompagner de A à Z.
-                Cliquez ici pour demander un devis.
-              </p>
+                <p class="description">
+                  Vous envisagez une installation ou un nouveau projet ?
+                  Nos experts sont là pour vous accompagner de A à Z.
+                  Cliquez ici pour demander un devis.
+                </p>
             </div>
           </div>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 mx-auto">
-          <a href="electriciteDevis.html">
+          <a href="electriciteDevis.html?service=Electricité">
           <div class="box ">
             <div class="img-box">
               <img src="images/s2.png" alt="" />
@@ -213,7 +194,7 @@
           </a>
         </div>
         <div class="col-sm-6 col-md-4 mx-auto">
-          <a href="plomberieDevis.html">
+          <a href="plomberieDevis.html?service=Plomberie">
           <div class="box ">
             <div class="img-box">
               <img src="images/s3.png" alt="" />
@@ -234,12 +215,11 @@
       </div>
     </div>
 
-    <section class="service_section layout_padding">
+    <section class="presta_section layout_padding">
       <div class="container ">
         <div class="heading_container heading_center">
-          <h2> Nos différents services </h2>
+          <h2> Nos différentes offres de prestations et de produits. </h2>
         </div>
-
         <section id="prestations-produits">
           <div class="container">
             <h2>Prestations</h2>
@@ -267,6 +247,21 @@
               <li>Robinetterie</li>
               <li>WC</li>
             </ul>
+                <button class="toggle-button" id="sendButton">Envoyer la demande</button>
+                <!-- Modal -->
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Détaillez-nous votre problème</p>
+                    <textarea id="problemDescription" placeholder="Entrez votre description ici..."></textarea>
+                    <br>
+                    <button id="pivote360">Continuer</button>
+                    <div id="additionalInfo" class="additional-info">
+                      Veuillez renseigner votre nom, prénom, numéro et e-mail.
+                    </div>
+                  </div>
+                </div>
+
           </div>
         </section>
       </div>
@@ -489,7 +484,7 @@
         <div class="col-md-6">
           <div class="map_container ">
             <div class="map">
-              <div id="googleMap" style="width:50em;height:29em;"></div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.528392330027!2d2.4719216763016205!3d48.79089317132308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60c9579faa219%3A0xbeb24ed8df972197!2s26%20Av.%20Beaurepaire%2C%2094100%20Saint-Maur-des-Foss%C3%A9s!5e0!3m2!1sfr!2sfr!4v1707402140600!5m2!1sfr!2sfr" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -578,7 +573,5 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
 
-
 </body>
-
 </html>

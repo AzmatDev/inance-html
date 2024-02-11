@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->addAddress('groupentservices@gmail.com', 'GroupNtService');
     $mail->setFrom($email);
     $mail->isHTML(true);
-    $mail->Subject = 'Demande de Devis - Installation';
+    $mail->Subject = 'Demande de Devis - Plomberie';
     $mail->Body = "Nom : $nom<br>
                     Prénom : $prenom<br>
                     Adresse E-mail : $email<br>
