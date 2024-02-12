@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/devis.css">
-    <title>Devis Electricite</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/electriciteDevis.css" />
+
     <script>
         function validateEmail() {
             var email = document.getElementById("email").value;
@@ -17,40 +18,52 @@
             return true;
         }
     </script>
+    <title>Devis Electricité</title>
 </head>
 <body>
-<div class="container">
-    <h2>Electricite - Demande de Devis</h2>
-    <form action="php/process_form_elec.php" method="post">
+<section class="container">
+    <header>Electricté - Demande de Devis</header>
+    <form action="php/process_form_elec.php" method="post" class="form" onsubmit="return validateEmail()">
 
-        <input type="hidden" id="service" name="service" value="<?php echo $_GET['service'] ?? 'Installation'; ?>">
+        <input type="hidden" id="subject" name="subject" value="Devis Installation">
+        <div class="column">
+            <div class="input-box">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+            </div>
 
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
+            <div class="input-box">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+            </div>
 
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="prenom" required>
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="exemple@mail.fr" required />
+            </div>
+            <div class="input-box">
+                <label for="telephone">Numéro de téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="0123456789" required maxlength="10">
+            </div>
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="adresse">Adresse :</label>
-        <input type="text" id="adresse" name="adresse" required>
-
-        <label for="telephone">Numéro de téléphone :</label>
-        <input type="tel" id="telephone" name="telephone" required maxlength="10">
-
-        <label for="codePostal">Code Postal :</label>
-        <input type="text" id="codePostal" name="codePostal" required maxlength="5">
-
-        <label for="ville">Ville :</label>
-        <input type="text" id="ville" name="ville" required>
-
+            <div class="input-box">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" placeholder="Votre adresse" required />
+            </div>
+            <div class="input-box">
+                <label for="ville">Ville</label>
+                <input type="text" id="ville" name="ville" placeholder="Paris" required>
+            </div>
+            <div class="input-box">
+                <label for="codePostal">Code Postal</label>
+                <input type="text" id="codePostal" name="codePostal" placeholder="75011" required maxlength="5">
+            </div>
+        </div>
         <label for="description">Description du problème :</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
+        <textarea id="description" name="description" rows="4" placeholder="Décrivez nous votre problème" required></textarea>
 
         <button type="submit">Envoyer la demande</button>
     </form>
-</div>
+</section>
 </body>
 </html>
