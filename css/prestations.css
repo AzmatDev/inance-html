@@ -73,6 +73,7 @@
     opacity: 1;
     transform: translateX(0);
 }
+
 /*Bouton envoyer la demande*/
 .toggle-button {
     background-color: #0355cc;
@@ -90,9 +91,8 @@
     background-color: #023f9b; /* Une nuance plus foncée pour l'effet de survol */
 }
 
-/*!* Modal styles *!
+/* Style pour le modal */
 .modal {
-    background-color: #1abc9c;
     display: none;
     position: fixed;
     z-index: 9999;
@@ -101,175 +101,58 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
-    transition: opacity 0.5s ease-in-out;
-}
-
-.modal.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+    backdrop-filter: blur(5px); /* Effet de flou */
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: #fff; /* Couleur de fond du modal */
+    margin: 5% auto; /* Marge autour du modal */
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    max-width: 80%;
-    width: 500px;
-    text-align: center;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    max-width: 500px; /* Largeur maximale du modal */
 }
 
 .close {
     color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    float: right;
     font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .close:hover {
-    color: #333;
+    color: #000;
 }
 
-!* Styles pour le formulaire et le bouton d'envoi *!
-#sendEmail {
-    border-radius: 10px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.modal-content p {
+    margin-bottom: 20px;
 }
 
-#sendEmail:hover {
-    background-color: #45a049;
-}
-
-#problemDescription {
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="tel"],
+.modal-content textarea {
     width: 100%;
-    height: 150px;
-    resize: vertical;
     padding: 10px;
-    box-sizing: border-box;
-    border-radius: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-!* Styles pour le titre du modal *!
-.modal-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-!* Styles pour les éléments de formulaire *!
-.form-label {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-!* Style pour le bouton de fermeture *!
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}*/
-
-/* Ajout de la transition pour le modal */
-/* Ajout de la transition pour le modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(26, 188, 156, 0); /* Couleur de fond initiale transparente */
-    backdrop-filter: blur(8px);
-    transition: opacity 0.3s ease; /* Transition de couleur de fond */
-}
-
-.modal.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    background-color: rgba(26, 188, 156, 0.75); /* Couleur de fond finale */
-}
-
-/* Styles pour le contenu du modal */
-.modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
-    max-width: 600px;
-    height: 350px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    transition: opacity 0.3s ease; /* Ajout de la transition pour l'opacité */
-}
-
-/* Style pour le bouton de fermeture */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover {
-    color: #333;
-}
-
-/* Style pour le bouton "Envoyer" */
-#sendEmail {
-    border-radius: 10px;
-    background-color: #1abc9c; /* Bleu turquoise */
+.modal-content button {
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Ajout de la transition pour la couleur de fond et la transformation */
 }
 
-#sendEmail:hover {
-    background-color: #148f77; /* Variation plus foncée pour l'effet de survol */
-    transform: scale(1.05); /* Légère mise à l'échelle au survol */
+.modal-content button:hover {
+    background-color: #45a049;
 }
 
-/* Styles pour la zone de description du problème */
-#problemDescription {
-    width: 100%;
-    height: 150px;
-    resize: vertical;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-}
 
-/* Styles pour le contenu du modal */
-.additional-info {
-    display: none; /* Masquer par défaut */
-    margin-top: 20px;
-    font-size: 14px;
-    color: #FF0000; /* Couleur rouge pour attirer l'attention */
-}

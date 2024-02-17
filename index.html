@@ -72,9 +72,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="about.html">À propos de nous</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html">Services</a>
-                </li>
               </ul>
             </div>
           </nav>
@@ -95,9 +92,6 @@
               </h1>
               <a href="#" id="contactButton" data-phone-number="+33 1 84 23 10 10">
                 Contacter le service <br>
-                <small style="font-size: 0.5em;">
-                  (Prix d'un appel local)
-                </small>
               </a>
             </div>
           </div>
@@ -247,26 +241,28 @@
               <li>Robinetterie</li>
               <li>WC</li>
             </ul>
-                <button class="toggle-button" id="sendButton">Envoyer la demande</button>
-                <!-- Modal -->
-                <div id="myModal" class="modal">
-                  <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Détaillez-nous votre problème</p>
-                    <textarea id="problemDescription" placeholder="Entrez votre description ici..."></textarea>
-                    <br>
-                    <button id="pivote360">Continuer</button>
-                    <div id="additionalInfo" class="additional-info">
-                      Veuillez renseigner votre nom, prénom, numéro et e-mail.
+                <button id="envoyerDemande" class="toggle-button">Envoyer la demande</button>
+                    <!-- HTML du modal -->
+                    <div id="modal" class="modal">
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>Veuillez renseigner vos informations :</p>
+                        <input type="text" id="nom" placeholder="Nom">
+                        <input type="text" id="prenom" placeholder="Prénom">
+                        <input type="email" id="email" placeholder="Adresse e-mail">
+                        <input type="tel" id="telephone" placeholder="Téléphone">
+                        <input type="text" id="adresse" placeholder="Adresse">
+                        <input type="text" id="ville" placeholder="Ville">
+                        <input type="text" id="codePostal" placeholder="Code postal">
+                        <textarea id="description" placeholder="Description"></textarea>
+                        <button id="envoyer">Envoyer</button>
+                      </div>
                     </div>
-                  </div>
                 </div>
-
-          </div>
+              </section>
+            </div>
+          </section>
         </section>
-      </div>
-    </section>
-  </section>
 
   <!-- end service section -->
 <br>
@@ -314,7 +310,7 @@
               </div>
               <div class="client_text">
                 <p>
-                  Très bon prestataire, Sérieux , Rapide et très bon travail Monsieur Georges T
+                  Très bon prestataire, Sérieux, Rapide et très bon travail Monsieur Georges T
                 </p>
               </div>
             </div>
