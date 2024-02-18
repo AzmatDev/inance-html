@@ -49,13 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const produitsListItems = document.querySelectorAll(".produits-list li");
 
     prestationsListItems.forEach(item => {
-        item.addEventListener("click", function() {
+        item.addEventListener("click", function () {
             toggleBackgroundColor(this);
         });
     });
 
     produitsListItems.forEach(item => {
-        item.addEventListener("click", function() {
+        item.addEventListener("click", function () {
             toggleBackgroundColor(this);
         });
     });
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactButton = document.getElementById("contactButton");
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    contactButton.addEventListener("click", function(event) {
+    contactButton.addEventListener("click", function (event) {
         event.preventDefault();
         const phoneNumber = contactButton.getAttribute("data-phone-number");
 
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /* Code pour le curseur */
-    const coords = { x: 0, y: 0 };
+    const coords = {x: 0, y: 0};
     const circles = document.querySelectorAll(".circle");
 
     const colors = [
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
         circle.style.backgroundColor = colors[index % colors.length];
     });
 
-    window.addEventListener("mousemove", function(e){
+    window.addEventListener("mousemove", function (e) {
         coords.x = e.clientX;
         coords.y = e.clientY;
     });
@@ -168,56 +168,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
     animateCircles();
 
-    /* Code pour le modal et la sélection des éléments de liste */
-    const btnEnvoyer = document.getElementById("envoyer");
+
+    /* Code la sélection des éléments de liste */
     const btnEnvoyerDemande = document.getElementById("envoyerDemande");
-    const modal = document.getElementById("modal");
-    const btnCloseModal = document.querySelector(".close");
     const selectedItems = []; // Tableau pour stocker les éléments sélectionnés
 
-    btnEnvoyerDemande.addEventListener("click", function() {
-        modal.style.display = "block";
+    btnEnvoyerDemande.addEventListener("click", function (event) {
+        // Vérifier si au moins 1 élément est sélectionné
+        if (selectedItems.length < 1) {
+            // Empêcher le comportement par défaut du lien
+            event.preventDefault();
+            // Afficher un message à l'utilisateur pour lui indiquer de sélectionner au moins un élément avant d'envoyer la demande.
+            alert("Veuillez sélectionner au moins un élément avant d'envoyer la demande.");
+        }
     });
 
-    btnCloseModal.addEventListener("click", function() {
-        modal.style.display = "none";
-    });
-
-    btnEnvoyer.addEventListener("click", function() {
-        const nom = document.getElementById("nom").value;
-        const prenom = document.getElementById("prenom").value;
-        const email = document.getElementById("email").value;
-        const telephone = document.getElementById("telephone").value;
-        const adresse = document.getElementById("adresse").value;
-        const ville = document.getElementById("ville").value;
-        const codePostal = document.getElementById("codePostal").value;
-        const description = document.getElementById("description").value;
-
-        // Récupérer les éléments sélectionnés
-        console.log("Éléments sélectionnés:", selectedItems);
-
-        // Ici, vous pouvez utiliser les valeurs récupérées pour envoyer un e-mail ou effectuer toute autre action nécessaire
-        console.log("Nom:", nom);
-        console.log("Prénom:", prenom);
-        console.log("Email:", email);
-        console.log("Téléphone:", telephone);
-        console.log("Adresse:", adresse);
-        console.log("Ville:", ville);
-        console.log("Code postal:", codePostal);
-        console.log("Description:", description);
-
-        // Fermer le modal après l'envoi des informations
-        modal.style.display = "none";
-    });
 
     prestationsListItems.forEach(item => {
-        item.addEventListener("click", function() {
+        item.addEventListener("click", function () {
             toggleSelection(item);
         });
     });
 
     produitsListItems.forEach(item => {
-        item.addEventListener("click", function() {
+        item.addEventListener("click", function () {
             toggleSelection(item);
         });
     });
@@ -246,16 +220,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const btnEnvoyerDemande = document.getElementById("envoyerDemande");
-    const modal = document.getElementById("modal");
-    const btnCloseModal = document.querySelector(".close");
 
-    btnEnvoyerDemande.addEventListener("click", function() {
-        modal.classList.add("active"); // Ajoute la classe 'active' pour rendre le modal visible
-    });
 
-    btnCloseModal.addEventListener("click", function() {
-        modal.classList.remove("active"); // Retire la classe 'active' pour masquer le modal
-    });
-});
+
+
+
