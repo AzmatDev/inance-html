@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="css/electriciteDevis.css" />
     <script src="js/script.js"></script>
 
-    <title>Devis Electricité</title>
+    <title>Devis</title>
 </head>
 <body>
 <section class="container">
-    <header>Electricté - Demande de Devis</header>
+    <header>Demande de Devis</header>
     <form action="php/process_form_li.php" method="post" class="form" onsubmit="return validateEmail()">
 
         <input type="hidden" id="subject" name="subject" value="Devis Installation">
@@ -49,7 +49,7 @@
                 <input type="text" id="codePostal" name="codePostal" placeholder="75011" required maxlength="5">
             </div>
         </div>
-        <label for="description">Description du problème :</label>
+        <label for="description">Description du problème</label>
         <textarea id="description" name="description" rows="4" placeholder="Décrivez nous votre problème" required></textarea>
 
         <input type="hidden" id="elementsSelectionnesInput" name="elementsSelectionnesInput">

@@ -24,7 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ville = $_POST['ville'];
         $description = $_POST['description'];
 
-        // Configuration de PHPMailer
+
+    // Configuration de PHPMailer
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -51,6 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    Description du problème : $description<br>
                    Élément(s) sélectionné(s) : ";
 
+
+
     // Envoi du message
     try {
         $mail->send();
@@ -73,9 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $confirmationMail->Body = "Votre demande de devis a bien été reçue. Nous reviendrons vers vous dans les plus brefs délais.";
 
         $confirmationMail->send();
-
-        header("Location: /confirmation.html");
-        exit();
+echo"<pre>";
+        var_dump($_POST);
+echo"</pre>";
+        /*header("Location: /confirmation.html");
+        exit();*/
     } catch (Exception $e) {
         echo "Une erreur s'est produite {$mail->ErrorInfo}";
     }

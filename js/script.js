@@ -181,6 +181,12 @@ document.addEventListener("DOMContentLoaded", function() {
             // Afficher un message à l'utilisateur pour lui indiquer de sélectionner au moins un élément avant d'envoyer la demande.
             alert("Veuillez sélectionner au moins un élément avant d'envoyer la demande.");
         }
+        else {
+            const encodedItems = encodeURIComponent(JSON.stringify(selectedItems));
+            const url = new URL(window.location.href);
+            url.searchParams.append('selectedItems', encodedItems);
+            window.location.href = url.toString();
+        }
     });
 
 
@@ -215,8 +221,11 @@ document.addEventListener("DOMContentLoaded", function() {
             selectedItems.push(element.textContent); // Ajoute le texte de l'élément au tableau des éléments sélectionnés
         }
 
+        // Mettre à jour la valeur de l'élément input hidden
         console.log(selectedItems); // Affiche le tableau des éléments sélectionnés dans la console (pour le débogage (f12))
+
     }
+
 
 });
 
