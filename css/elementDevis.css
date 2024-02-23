@@ -13,7 +13,7 @@ body {
     justify-content: center;
     padding: 20px;
     background: rgb(255,255,255); /* Couleur de fond de secours */
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,99,0,1) 52%);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,99,0,1) 52%);
 }
 
 .container {
@@ -113,11 +113,11 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: rgb(255, 255, 0); /* Jaune vif pour le survol */
+    background: #ec610a; /* Jaune vif pour le survol */
 
 }
 .form button:hover {
-    background: rgb(255, 204, 51); /* Jaune orangé pour le survol */
+    background: #ef803b; /* Jaune orangé pour le survol */
 }
 
 /*Responsive*/
