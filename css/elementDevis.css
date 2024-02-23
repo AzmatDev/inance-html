@@ -12,21 +12,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: linear-gradient(to bottom,
-    #ffffcc,
-    #ffffb3,
-    #ffff99,
-    #ffff80,
-    #ffff66,
-    #ffff4d,
-    #ffff33,
-    #ffff1a,
-    #ffff00,
-    #e6e600,
-    #b3b300,
-    #808000,
-    #4d4d00
-    );
+    background: rgb(255,255,255); /* Couleur de fond de secours */
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,99,0,1) 52%);
 }
 
 .container {
