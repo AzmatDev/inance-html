@@ -1,0 +1,44 @@
+
+.slider-container {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container {
+  width: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+.image-container img {
+  width: 50%;
+}
+
+.handle {
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.handle:hover {
+  background-color: #999;
+}
+
+.image-container img:last-child {
+  opacity: 1;
+}
+
+
+.slider-container:hover .image-container {
+  transform: translateX(-50%);
+}
+
