@@ -1,47 +1,60 @@
 <?php
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/..');
+$dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/../../../inance-html');
 $dotenv->load();
 
-$body = file_get_contents(__DIR__ . '/../confirmation_email.html');
+$body = file_get_contents(__DIR__ . '/../../confirmation_email.html');
 
+// Connexion à la base de données
+$servername = "localhost"; // ou l'adresse IP de votre serveur MySQL
+$username = "root"; // votre nom d'utilisateur MySQL
+$password = ""; // laisser le champ du mot de passe vide
+$dbname = "Nt-service"; // le nom de votre base de données
+
+$body = file_get_contents(__DIR__ . '/../../confirmation_email.html');
+
+// Vérification si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des données du formulaire
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
-    $adresse = $_POST['adresse'];
     $telephone = $_POST['telephone'];
-    $codePostal = $_POST['codePostal'];
+    $adresse = $_POST['adresse'];
     $ville = $_POST['ville'];
+    $codePostal = $_POST['codePostal'];
     $description = $_POST['description'];
 
-    // Validation des données du formulaire
-    $errors = [];
-    if (empty($nom)) {
-        $errors[] = "Le champ nom est obligatoire.";
+
+    // Création de la connexion
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Vérification de la connexion
+    if ($conn->connect_error) {
+        die("La connexion à la base de données a échoué : " . $conn->connect_error);
     }
 
-    // Validation de l'e-mail
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "L'adresse e-mail n'est pas valide.";
-    }
+    // Préparation de la requête SQL pour insérer les données dans la table client
+    $sql_client = "INSERT INTO client (nom, prenom, email, telephone, adresse, ville, codePostal) 
+            VALUES ('$nom', '$prenom', '$email', '$telephone', '$adresse', '$ville', '$codePostal')";
 
-    // Autres validations pour les autres champs...
+    // Préparation de la requête SQL pour insérer les données dans la table demande
+    $sql_demande = "INSERT INTO demande (id_client, description, date_demande) 
+        VALUES (LAST_INSERT_ID(), '$description', NOW())";
 
-    // Si des erreurs sont détectées, affichez-les à l'utilisateur
-    if (!empty($errors)) {
-        foreach ($errors as $error) {
-            echo $error . "<br>";
-        }
-    } else {
+
+    if ($conn->query($sql_client) === TRUE && $conn->query($sql_demande) === TRUE) {
+
         // Configuration de PHPMailer
         $mail = new PHPMailer(true);
+        $mail->CharSet = 'UTF-8';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -57,16 +70,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isHTML(true);
         $mail->Subject = 'Demande de Devis - Plomberie';
         $mail->Body = "Nom : $nom<br>
-                        Prénom : $prenom<br>
-                        Adresse E-mail : $email<br>
-                        Numéro de téléphone : $telephone<br>
-                        Adresse : $adresse<br>
-                        Code Postal : $codePostal<br>
-                        Ville : $ville<br>
-                        Description du problème : $description";
+                    Prénom : $prenom<br>
+                    Adresse E-mail : $email<br>
+                    Numéro de téléphone : $telephone<br>
+                    Adresse : $adresse<br>
+                    Code Postal : $codePostal<br>
+                    Ville : $ville<br>
+                    Description du problème : $description";
 
-        // Remplacement des variables dans le contenu du fichier HTML
-        $body = str_replace('{{prenom}}', $prenom, $body);
 
         // Envoi du message
         try {
@@ -89,10 +100,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $confirmationMail->Body = $body;
 
             $confirmationMail->send();
-            header("Location: /confirmation.html");
-            exit();
+            /*header("Location: /../../confirmation.html");
+            exit();*/
         } catch (Exception $e) {
             echo "Une erreur s'est produite : {$mail->ErrorInfo}";
         }
+
+        header("Location: /../../confirmation.html");
+        exit();
     }
+
+    // Fermeture de la connexion à la base de données
+    $conn->close();
 }

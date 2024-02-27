@@ -170,61 +170,60 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     /* Code la sélection des éléments de liste */
-    const btnEnvoyerDemande = document.getElementById("envoyerDemande");
-    const selectedItems = []; // Tableau pour stocker les éléments sélectionnés
+const btnEnvoyerDemande = document.getElementById("envoyerDemande");
+const selectedItems = []; // Tableau pour stocker les éléments sélectionnés
 
-    btnEnvoyerDemande.addEventListener("click", function (event) {
-        // Vérifier si au moins 1 élément est sélectionné
-        if (selectedItems.length < 1) {
-            // Empêcher le comportement par défaut du lien
-            event.preventDefault();
-            // Afficher un message à l'utilisateur pour lui indiquer de sélectionner au moins un élément avant d'envoyer la demande.
-            alert("Veuillez sélectionner au moins un élément avant d'envoyer la demande.");
-        }
-        else {
-            const encodedItems = encodeURIComponent(JSON.stringify(selectedItems));
-            const url = new URL(window.location.href);
-            url.searchParams.append('selectedItems', encodedItems);
-            window.location.href = url.toString();
-        }
-    });
-
-
-    prestationsListItems.forEach(item => {
-        item.addEventListener("click", function () {
-            toggleSelection(item);
-        });
-    });
-
-    produitsListItems.forEach(item => {
-        item.addEventListener("click", function () {
-            toggleSelection(item);
-        });
-    });
-
-    function toggleSelection(element) {
-        const orangeColor = "#ff8a1d";
-
-        // Vérifie si l'élément a une classe qui le marque comme sélectionné
-        const isSelected = element.classList.contains("selected");
-
-        // Si l'élément est sélectionné, le désélectionne
-        if (isSelected) {
-            element.classList.remove("selected"); // Supprime la classe "selected"
-            const index = selectedItems.indexOf(element.textContent);
-            if (index !== -1) {
-                selectedItems.splice(index, 1); // Retire l'élément du tableau des éléments sélectionnés
-            }
-        } else {
-            // Sinon, sélectionne l'élément
-            element.classList.add("selected"); // Ajoute la classe "selected"
-            selectedItems.push(element.textContent); // Ajoute le texte de l'élément au tableau des éléments sélectionnés
-        }
-
-        // Mettre à jour la valeur de l'élément input hidden
-        console.log(selectedItems); // Affiche le tableau des éléments sélectionnés dans la console (pour le débogage (f12))
-
+btnEnvoyerDemande.addEventListener("click", function (event) {
+    // Vérifier si au moins 1 élément est sélectionné
+    if (selectedItems.length < 1) {
+        // Empêcher le comportement par défaut du lien
+        event.preventDefault();
+        // Afficher un message à l'utilisateur pour lui indiquer de sélectionner au moins un élément avant d'envoyer la demande.
+        alert("Veuillez sélectionner au moins un élément avant d'envoyer la demande.");
+    }else {
+        // Mettre à jour la valeur du champ caché avec les éléments sélectionnés
+        const elementsSelectionnesInput = document.getElementById("elementsSelectionnesInput");
+        elementsSelectionnesInput.value = JSON.stringify(selectedItems);
     }
+});
+
+
+prestationsListItems.forEach(item => {
+    item.addEventListener("click", function () {
+        toggleSelection(item);
+    });
+});
+
+produitsListItems.forEach(item => {
+    item.addEventListener("click", function () {
+        toggleSelection(item);
+    });
+});
+
+function toggleSelection(element) {
+    const orangeColor = "#ff8a1d";
+
+    // Vérifie si l'élément a une classe qui le marque comme sélectionné
+    const isSelected = element.classList.contains("selected");
+
+    // Si l'élément est sélectionné, le désélectionne
+    if (isSelected) {
+        element.classList.remove("selected"); // Supprime la classe "selected"
+        const index = selectedItems.indexOf(element.textContent);
+        if (index !== -1) {
+            selectedItems.splice(index, 1); // Retire l'élément du tableau des éléments sélectionnés
+        }
+    } else {
+        // Sinon, sélectionne l'élément
+        element.classList.add("selected"); // Ajoute la classe "selected"
+        selectedItems.push(element.textContent); // Ajoute le texte de l'élément au tableau des éléments sélectionnés
+    }
+
+    // Mettre à jour la valeur de l'élément input hidden
+    console.log(selectedItems); // Affiche le tableau des éléments sélectionnés dans la console (pour le débogage (f12))
+
+
+}
 
 
 });
